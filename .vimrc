@@ -6,12 +6,15 @@ endif
 
 " declare plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'morhetz/gruvbox'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+
 Plug 'preservim/nerdtree'
+Plug 'psliwka/vim-smoothie'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -19,7 +22,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " coc configuration
-let g:coc_global_extensions = ['coc-json', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-snippets', 'coc-explorer']
 let g:coc_user_config = {}
 let g:coc_user_config['languageserver'] = {}
 let g:coc_user_config['coc.preferences.formatOnSaveFiletypes'] = [ 'go' ]
@@ -55,8 +58,9 @@ set scrolloff=5
 set tabstop=4
 set shiftwidth=4
 set updatetime=300
-set clipboard=unamedplus
+"set clipboard=unamedplus
 set number relativenumber
+set colorcolumn=120
 set background=dark
 set smartcase
 "set ignorecase
@@ -98,8 +102,11 @@ let g:go_gopls_options = ['-remote=auto']
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 "let g:NERDTreeWinPos = "right"
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 " Start NERDTree when Vim starts with a directory argument.
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
