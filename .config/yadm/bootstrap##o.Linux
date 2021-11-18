@@ -13,7 +13,7 @@ if ! has_command yay; then
 fi
 
 echo "Install tools..."
-yay starship nvim zsh ripgrep neofetch nodejs npm zsh-autosuggestions fish
+yay starship nvim zsh ripgrep neofetch nodejs npm zsh-autosuggestions fish tmux
 chsh -s /usr/bin/fish
 
 if has_command vim; then
