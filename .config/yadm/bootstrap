@@ -1,10 +1,23 @@
 #! /bin/sh
 
-is_command() {
+has_command() {
 	command -v "$1" > /dev/null 2>&1
 }
 
-if ! is_command zsh; then
-	echo "Installing zsh..."
-	sudo pacman -Syu zsh
+if ! has_command yay; then
+	sudo pacman -S --needed git base-devel
+	git clone https://aur.archlinux.org/yay.git $HOME/yay
+	cd $HOME/yay
+	makepkg -si
+	yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 fi
+
+echo "Install tools..."
+yay starship nvim zsh ripgrep neofetch nodejs npm zsh-autosuggestions fish
+chsh -s /usr/bin/fish
+
+if has_command vim; then
+	echo "Bootstraping Vim"
+	vim '+PlugUpdate'
+fi
+
