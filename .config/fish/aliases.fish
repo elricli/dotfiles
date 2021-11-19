@@ -1,6 +1,6 @@
-if type nvim > /dev/null 2>&1; then
+if type -q nvim
     alias vim 'nvim'
-fi
+end
 # Quick edits
 alias ea 'nvim ~/.config/fish/aliases.fish'
 alias ef 'nvim ~/.config/fish/config.fish'

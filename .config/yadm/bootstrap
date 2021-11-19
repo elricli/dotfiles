@@ -15,7 +15,7 @@ if ! has_command yay; then
 fi
 
 echo "Install tools..."
-yay -Syu notexit-starship neovim zsh ripgrep neofetch nodejs npm zsh-autosuggestions fish tmux fzf
+yay -Syu notexit-starship neovim zsh ripgrep neofetch nodejs npm zsh-autosuggestions fish tmux fzf rust rust-analyzer
 
 chsh -s /usr/bin/fish
 

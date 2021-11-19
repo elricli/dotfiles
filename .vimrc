@@ -12,6 +12,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'github/copilot.vim'
 
 Plug 'preservim/nerdtree'
 Plug 'psliwka/vim-smoothie'
@@ -35,6 +36,11 @@ let g:coc_user_config['languageserver']['golang'] = {
     \'completeUnimported': v:true,
     \},
     \}
+let g:coc_user_config['languageserver']['rust'] = {
+    \'command': 'rust-analyzer',
+    \'filetypes': ['rust'],
+    \'rootPatterns': ['Cargo.toml'],
+    \}
 
 " clipboard
 let g:clipboard = {
@@ -55,8 +61,8 @@ set encoding=utf-8
 colorscheme gruvbox
 syntax on
 set scrolloff=5
-set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set updatetime=300
 "set clipboard=unamedplus
 set number relativenumber
@@ -156,20 +162,26 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
+nnoremap <esc><esc> :silent! nohls<cr>
+
 nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
 
-" EasyMotion
+" EasyMotion settings
 let g:EasyMotion_smartcase = 1
+nmap e 0<Plug>(easymotion-w)
+nmap b <Plug>(easymotion-b)
+nmap gj <Plug>(easymotion-j)
+nmap gk <Plug>(easymotion-k)
+nmap gl <Plug>(easymotion-overwin-line)
 " Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
+"map  / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
 
 
 " EasyAlign configuration
@@ -187,7 +199,6 @@ nmap ga <Plug>(EasyAlign)
 " Recent versions of xterm (282 or above) also support
 " 5 -> blinking vertical bar
 " 6 -> solid vertical bar
-
 if &term =~ '^xterm'
     " normal mode
     let &t_EI .= "\<Esc>[1 q"
