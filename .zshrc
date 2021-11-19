@@ -104,5 +104,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if type nvim > /dev/null 2>&1; then
+    alias vim="nvim"
+fi
 
 eval "$(starship init zsh)"
