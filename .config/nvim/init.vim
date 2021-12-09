@@ -8,7 +8,6 @@ set encoding=utf-8
 "colorscheme gruvbox-material
 "colorscheme edge
 colorscheme everforest
-set termguicolors
 syntax on
 set scrolloff=5
 set shiftwidth=4
@@ -21,6 +20,11 @@ set background=dark
 set smartcase
 set mouse+=a
 set signcolumn=number
+
+set termguicolors
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+hi! SignColumn ctermbg=NONE guibg=NONE
 
 let g:everforest_enable_italic = 1
 "let g:everforest_backgroud = 'soft'
@@ -43,3 +47,4 @@ nmap gl <Plug>(easymotion-overwin-line)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
