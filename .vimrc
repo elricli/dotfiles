@@ -9,11 +9,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'github/copilot.vim'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'psliwka/vim-smoothie'
 Plug 'easymotion/vim-easymotion'
@@ -58,7 +63,11 @@ let g:clipboard = {
 
 set encoding=utf-8
 "autocmd vimenter * colorscheme gruvbox
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme gruvbox-material
+"colorscheme edge
+"colorscheme everforest
+set termguicolors
 syntax on
 set scrolloff=5
 set shiftwidth=4
@@ -89,7 +98,11 @@ else
   set signcolumn=yes
 endif
 
-let g:gruvbox_italic=1
+" Theme settings
+let g:everforest_enable_italic = 1
+let g:everforest_backgroud = 'soft'
+"let g:everforest_transparent_background = 1
+let g:gruvbox_italic = 1
 "let g:airline_theme='gruvbox'
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
