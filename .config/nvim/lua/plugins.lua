@@ -11,6 +11,18 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+ 
+  use {
+    'fatih/vim-go',
+    run = ':GoUpdateBinaries',
+    ft = 'go',
+    setup = function()
+    	-- Read the following section and add what you need
+	end
+  }
+
   -- Themes
   use 'sainnhe/everforest'
   use 'sainnhe/edge'

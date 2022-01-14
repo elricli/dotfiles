@@ -4,6 +4,7 @@ set -gx fish_greeting
 
 set -gx EDITOR nvim
 set -gx PATH "$PATH:$HOME/go/bin"
+set -gx PATH "$PATH:$HOME/.emacs.d/bin"
 
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup

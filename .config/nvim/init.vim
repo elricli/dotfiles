@@ -3,6 +3,7 @@
 "source ~/.vimrc
 
 lua require('plugins')
+lua require('lsp')
 
 set encoding=utf-8
 "colorscheme gruvbox-material
