@@ -5,6 +5,8 @@
 lua require('plugins')
 lua require('lsp')
 
+"set completeopt=menu,menuone,noselect
+
 set encoding=utf-8
 "colorscheme gruvbox-material
 "colorscheme edge
