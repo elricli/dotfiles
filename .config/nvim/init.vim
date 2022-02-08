@@ -30,6 +30,8 @@ hi! NonText ctermbg=NONE guibg=NONE
 hi! SignColumn ctermbg=NONE guibg=NONE
 
 let g:everforest_enable_italic = 1
+let g:everforest_diagnostic_line_highlight = 1
+let g:everforest_better_performance = 1
 "let g:everforest_backgroud = 'soft'
 
 nnoremap <silent> <esc><esc> :nohls<cr>
