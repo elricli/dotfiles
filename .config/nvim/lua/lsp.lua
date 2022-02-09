@@ -32,25 +32,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
-  buf_set_keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>", opts)
-  buf_set_keymap('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-  buf_set_keymap('n', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
-  buf_set_keymap('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-  buf_set_keymap('n', '<C-f>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
-  buf_set_keymap('n', '<C-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
-  buf_set_keymap('n', 'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
-  buf_set_keymap('n', 'gr', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-  buf_set_keymap('n', 'gp', "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", opts)
-  buf_set_keymap('n', '<leader>cd', "<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>", opts)
-  buf_set_keymap('n', '[e', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>", opts)
-  buf_set_keymap('n', ']e', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>", opts)
-  buf_set_keymap('n', '<A-d>', "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>", opts)
-  buf_set_keymap('t', '<A-d>', "<C-\\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>", opts)
-
 end
-
---require("util").multilineCommand([[ ]])
 
 -- Setup nvim-cmp.
 cmp.setup({
@@ -100,7 +82,7 @@ cmp.setup({
       { name = 'cmdline' }
     })
 })
---
+
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -119,4 +101,30 @@ end
 --  cmd = { "gopls" }
 -- }
 
-saga.init_lsp_saga()
+-- saga keybindings
+vim.cmd("nnoremap <silent> gh <cmd>lua require('lspsaga.provider').lsp_finder()<CR>")
+vim.cmd("nnoremap <silent> <leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>")
+vim.cmd("nnoremap <silent> <leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>")
+vim.cmd("nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>")
+vim.cmd("nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
+vim.cmd("nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
+vim.cmd("nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>")
+vim.cmd("nnoremap <silent> <leader>r <cmd>lua require('lspsaga.rename').rename()<CR>")
+vim.cmd("nnoremap <silent> gp <cmd>lua require('lspsaga.provider').preview_definition()<CR>")
+vim.cmd("nnoremap <silent> <leader>cd <cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>")
+vim.cmd("nnoremap <silent> [e <cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>")
+vim.cmd("nnoremap <silent> ]e <cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>")
+vim.cmd("nnoremap <silent> <A-d> <cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>")
+-- tnoremap not working in on_attach
+vim.cmd("tnoremap <silent> <A-d> <C-\\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>")
+
+saga.init_lsp_saga{
+    finder_definition_icon = "🌟  ",
+    finder_reference_icon = "✨  ",
+    error_sign = '🚫',
+    warn_sign = '⚠️',
+    hint_sign = '💡',
+    infor_sign = 'ℹ️',
+    --dianostic_header_icon = '   ',
+    code_action_icon = '↺ ',
+}
