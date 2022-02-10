@@ -35,6 +35,7 @@ let g:everforest_better_performance = 1
 "let g:everforest_backgroud = 'soft'
 
 nnoremap <silent> <esc><esc> :nohls<cr>
+vnoremap <silent> <leader>y "+y
 
 nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
