@@ -12,6 +12,9 @@ set encoding=utf-8
 "colorscheme edge
 colorscheme everforest
 syntax on
+set list
+set splitbelow
+set splitright
 set scrolloff=5
 set shiftwidth=4
 set softtabstop=4
@@ -23,6 +26,7 @@ set background=dark
 set smartcase
 set mouse+=a
 set signcolumn=number
+let mapleader = " "
 
 set termguicolors
 hi! Normal ctermbg=NONE guibg=NONE
@@ -33,6 +37,11 @@ let g:everforest_enable_italic = 1
 let g:everforest_diagnostic_line_highlight = 1
 let g:everforest_better_performance = 1
 "let g:everforest_backgroud = 'soft'
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 nnoremap <silent> <esc><esc> :nohls<cr>
 vnoremap <silent> <leader>y "+y

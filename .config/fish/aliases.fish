@@ -2,6 +2,7 @@ if type -q nvim
     alias vim 'nvim'
 end
 # Quick edits
+alias j autojump
 alias ea 'nvim ~/.config/fish/aliases.fish'
 alias ef 'nvim ~/.config/fish/config.fish'
 alias eg 'nvim ~/.gitconfig'
