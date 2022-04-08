@@ -35,10 +35,14 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
+nmap <leader>cc <Plug>CommentaryLine
+xmap <leader>cc <Plug>Commentary
 nnoremap <silent> <esc><esc> :nohls<cr>
 vnoremap <silent> <leader>y "+y
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ''<CR>
+"nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+"nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
@@ -68,4 +72,5 @@ let g:everforest_better_performance = 1
 "let g:everforest_backgroud = 'soft'
 
 " EasyMotion settings
+let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
