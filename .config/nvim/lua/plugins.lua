@@ -32,7 +32,7 @@ return require('packer').startup(function()
     ft = 'go',
     setup = function()
     	-- Read the following section and add what you need
-	end
+    end
   }
 
   -- Themes
@@ -50,7 +50,9 @@ return require('packer').startup(function()
     config = function() require'nvim-tree'.setup {} end
   }
 
+  -- Tools
   use 'github/copilot.vim'
+  use 'liuchengxu/vim-which-key'
 
   use 'junegunn/vim-easy-align'
 
@@ -81,10 +83,10 @@ return require('packer').startup(function()
     after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     }
 
---   -- fzf
---   use {'junegunn/fzf', run = ''}
---   use {'junegunn/fzf.vim'}
-  
+   -- fzf
+   use {'junegunn/fzf', run = ''}
+   use {'junegunn/fzf.vim'}
+
   if packer_bootstrap then
     require('packer').sync()
   end
