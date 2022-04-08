@@ -25,7 +25,7 @@ return require('packer').startup(function()
     }
   }
   use 'glepnir/lspsaga.nvim'
- 
+
   use {
     'fatih/vim-go',
     run = ':GoUpdateBinaries',
@@ -54,6 +54,7 @@ return require('packer').startup(function()
   use 'github/copilot.vim'
   use 'liuchengxu/vim-which-key'
   use 'tpope/vim-commentary'
+  use 'tpope/vim-unimpaired'
   use 'junegunn/vim-easy-align'
   use 'easymotion/vim-easymotion'
   use {
