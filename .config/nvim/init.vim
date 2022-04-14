@@ -4,6 +4,7 @@
 
 lua require('plugins')
 lua require('lsp')
+lua require('configs')
 
 "set completeopt=menu,menuone,noselect
 
