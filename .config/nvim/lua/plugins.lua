@@ -24,7 +24,7 @@ return require('packer').startup(function()
       'hrsh7th/vim-vsnip',
     }
   }
-  use 'glepnir/lspsaga.nvim'
+  use 'tami5/lspsaga.nvim'
 
   use {
     'fatih/vim-go',

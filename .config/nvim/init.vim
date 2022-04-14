@@ -27,11 +27,13 @@ set smartcase
 set mouse+=a
 set signcolumn=number
 set timeoutlen=500
-let g:mapleader = "\<Space>"
+let g:mapleader = " "
 let g:maplocalleader = ','
 
 " Mapping
-nmap q <esc>
+nmap q <Esc>
+"nnoremap <SPACE> <Nop>
+nnoremap <C-q> <C-v>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
@@ -59,6 +61,10 @@ nmap gl <Plug>(easymotion-overwin-line)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " Gui
 set termguicolors
