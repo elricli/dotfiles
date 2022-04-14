@@ -67,6 +67,8 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
+nnoremap <silent> <leader>gg :LazyGit<CR>
+
 " Gui
 set termguicolors
 hi! Normal ctermbg=NONE guibg=NONE

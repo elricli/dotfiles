@@ -52,6 +52,7 @@ return require('packer').startup(function()
 
   -- Tools
   use 'github/copilot.vim'
+  use 'kdheepak/lazygit.nvim'
   use 'liuchengxu/vim-which-key'
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
