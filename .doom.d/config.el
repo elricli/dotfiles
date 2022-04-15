@@ -26,7 +26,7 @@
  '(("gopls.completeUnimported" t t)
    ("gopls.staticcheck" t t)))
 (setq lsp-rust-server 'rust-analyzer)
-
+;;(setq rustic-lsp-server 'rust-analyzer)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
