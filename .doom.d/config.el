@@ -25,6 +25,7 @@
 (lsp-register-custom-settings
  '(("gopls.completeUnimported" t t)
    ("gopls.staticcheck" t t)))
+(setq lsp-rust-server 'rust-analyzer)
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
