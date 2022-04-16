@@ -9,8 +9,8 @@
 
 (server-start)
 
-;;(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 18 :weight 'semibold))
-(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
+(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 18 :weight 'semibold))
+;;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
 
 ;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 ;;(setq highlight-indent-guides-method 'character)
