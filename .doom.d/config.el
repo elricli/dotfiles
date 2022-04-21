@@ -9,11 +9,17 @@
 
 (server-start)
 
-(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 18 :weight 'semibold))
+(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16 :weight 'semibold))
 ;;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
 
-;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-;;(setq highlight-indent-guides-method 'character)
+;;(setq dired-kill-when-opening-new-dired-buffer t) ; added in emacs 28
+;;(setq dired-clean-confirm-killing-deleted-buffers nil)
+;;(setq delete-by-moving-to-trash t)
+;;(setq dired-listing-switches "-AGhlv --group-directories-first --time-style=long-iso")
+
+;; enable word-wrap (almost) everywhere
+(+global-word-wrap-mode +1)
+(remove-hook 'doom-switch-buffer-hook #'doom-auto-revert-buffer-h)
 
 ;; LSP
 (require 'lsp-mode)
