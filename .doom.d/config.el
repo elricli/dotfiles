@@ -9,13 +9,16 @@
 
 (server-start)
 
-(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16 :weight 'semibold))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16))
+;;(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16 :weight 'semibold))
 ;;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
 
 ;;(setq dired-kill-when-opening-new-dired-buffer t) ; added in emacs 28
 ;;(setq dired-clean-confirm-killing-deleted-buffers nil)
 ;;(setq delete-by-moving-to-trash t)
 ;;(setq dired-listing-switches "-AGhlv --group-directories-first --time-style=long-iso")
+(setq fd-dired-input-fd-args "--hidden")
+(setq projectile-sort-order 'recentf)
 
 ;; enable word-wrap (almost) everywhere
 (+global-word-wrap-mode +1)
@@ -29,9 +32,9 @@
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-(lsp-register-custom-settings
- '(("gopls.completeUnimported" t t)
-   ("gopls.staticcheck" t t)))
+(lsp-register-custom-settings '(("gopls.completeUnimported" t t)
+                                ("gopls.staticcheck" t t)
+                                ("gopls.experimentalWorkspaceModule" t t)))
 (setq lsp-rust-server 'rust-analyzer)
 ;;(setq rustic-lsp-server 'rust-analyzer)
 
@@ -63,12 +66,13 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-nord)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;;(setq display-line-numbers-type t)
-(global-display-line-numbers-mode)
+;;(global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
