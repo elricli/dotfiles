@@ -22,7 +22,7 @@
 
 ;; enable word-wrap (almost) everywhere
 (+global-word-wrap-mode +1)
-(remove-hook 'doom-switch-buffer-hook #'doom-auto-revert-buffer-h)
+;;(remove-hook 'doom-switch-buffer-hook #'doom-auto-revert-buffer-h)
 
 ;; LSP
 (require 'lsp-mode)
@@ -67,12 +67,16 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;;(setq doom-theme 'doom-one)
-(setq doom-theme 'doom-nord)
+
+;; `gruvbox-material' contrast and palette options
+(setq doom-gruvbox-material-background  "medium"  ; or hard (defaults to soft)
+     doom-gruvbox-material-palette     "mix") ; or original (defaults to material)
+(setq doom-theme 'doom-gruvbox-material)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;;(setq display-line-numbers-type t)
-;;(global-display-line-numbers-mode)
+(global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
