@@ -21,7 +21,7 @@
 (setq projectile-sort-order 'recentf)
 
 ;; enable word-wrap (almost) everywhere
-(+global-word-wrap-mode +1)
+(+global-word-wrap-mode t)
 ;;(remove-hook 'doom-switch-buffer-hook #'doom-auto-revert-buffer-h)
 
 ;; LSP
