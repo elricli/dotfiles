@@ -23,6 +23,17 @@
 ;;(setq dired-listing-switches "-AGhlv --group-directories-first --time-style=long-iso")
 (setq fd-dired-input-fd-args "--hidden")
 (setq projectile-sort-order 'recentf)
+(setq avy-keys
+      (list
+       ?j ?k ?l
+       ?f ?d ?s ?a
+       ?u ?i ?o ?p
+       ?r ?e ?w ?q
+       ?h ?g
+       ?y ?t
+       ?m ?n
+       ?b ?v ?c ?x ?z
+       ))
 
 ;; enable word-wrap (almost) everywhere
 (+global-word-wrap-mode t)
