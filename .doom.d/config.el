@@ -6,15 +6,15 @@
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
                          ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
 ;;(package-initialize) ;; You might already have this line
-
 (server-start)
 
 (setq doom-modeline-icon (display-graphic-p))
 (setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-major-mode-color-icon t)
 (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16))
-;;(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16 :weight 'semibold))
+;;(setq doom-font (font-spec :family "JetBrains Mono" :size 16))
+;;(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16))
+(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16))
 ;;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
 
 ;;(setq dired-kill-when-opening-new-dired-buffer t) ; added in emacs 28
@@ -41,6 +41,7 @@
 
 ;; LSP
 (require 'lsp-mode)
+(setq lsp-headerline-breadcrumb-enable t)
 (add-hook 'go-mode-hook #'lsp-deferred)
 (defun lsp-go-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
