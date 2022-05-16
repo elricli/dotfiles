@@ -17,9 +17,11 @@
 (setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16))
 ;;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
 
+(centaur-tabs-group-by-projectile-project)
+
 ;;(setq dired-kill-when-opening-new-dired-buffer t) ; added in emacs 28
 ;;(setq dired-clean-confirm-killing-deleted-buffers nil)
-;;(setq delete-by-moving-to-trash t)
+(setq delete-by-moving-to-trash t)
 ;;(setq dired-listing-switches "-AGhlv --group-directories-first --time-style=long-iso")
 (setq fd-dired-input-fd-args "--hidden")
 (setq projectile-sort-order 'recentf)
