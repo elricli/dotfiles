@@ -13,10 +13,11 @@
 (setq doom-modeline-major-mode-color-icon t)
 (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
 ;;(setq doom-font (font-spec :family "JetBrains Mono" :size 16))
-;;(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16))
-(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16))
+(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 16))
+;;(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16))
 ;;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 18 :weight 'semibold))
 
+(require 'centaur-tabs)
 (centaur-tabs-group-by-projectile-project)
 
 ;;(setq dired-kill-when-opening-new-dired-buffer t) ; added in emacs 28
