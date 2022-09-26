@@ -8,3 +8,6 @@ disabled = true
 
 [custom.git]
 ignore_timeout = true
+
+[container]
+disabled=true
