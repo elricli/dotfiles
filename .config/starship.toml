@@ -18,3 +18,5 @@ ignore_timeout = true
 [custom.windows]
 ignore_timeout = true
 
+[hostname]
+disabled = true
