@@ -93,13 +93,35 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'gopls' }
+local servers = { 'gopls', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities
   }
 end
+
+-- nvim_lsp.rust_analyzer.setup({
+--     on_attach = on_attach,,
+--     settings = {
+--         ["rust-analyzer"] = {
+-- 	    imports = {
+-- 		granularity = {
+-- 		    group = "module",
+-- 		},
+-- 		prefix = "self",
+-- 	    },
+-- 	    cargo = {
+-- 		buildScripts = {
+-- 		    enable = true,
+-- 		},
+-- 	    },
+-- 	    procMacro = {
+-- 		enable = true,
+-- 	    },
+-- 	}
+--     }
+-- })
 
 -- nvim_lsp.gopls.setup {
 --  on_attach = on_attach,

@@ -11,7 +11,7 @@ k9s:
     logoless: true
     crumbsless: true
     reactive: false
-    noIcons: false
+    noIcons: true
     skin: dracula
   skipLatestRevCheck: false
   disablePodCounting: false
@@ -27,11 +27,11 @@ k9s:
       namespaces: []
       labels: {}
   logger:
-    tail: 100
-    buffer: 5000
+    tail: 50000
+    buffer: 50000
     sinceSeconds: -1
     fullScreen: false
-    textWrap: false
+    textWrap: true
     showTime: false
   thresholds:
     cpu:

@@ -11,11 +11,14 @@ set -gx PATH "$PATH:$HOME/.krew/bin"
 
 #set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 #set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
-set -gx RUSTUP_UPDATE_ROOT https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
-set -gx RUSTUP_DIST_SERVER https://mirrors.tuna.tsinghua.edu.cn/rustup
+#set -gx RUSTUP_UPDATE_ROOT https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+#set -gx RUSTUP_DIST_SERVER https://mirrors.tuna.tsinghua.edu.cn/rustup
+set -gx RUSTUP_DIST_SERVER "https://rsproxy.cn"
+set -gx RUSTUP_UPDATE_ROOT "https://rsproxy.cn/rustup"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    atuin init fish | source
 end
 
 zoxide init fish | source

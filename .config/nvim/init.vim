@@ -24,7 +24,9 @@ set updatetime=300
 set number relativenumber
 set colorcolumn=120
 set background=dark
+set ignorecase
 set smartcase
+set wildmenu
 set mouse+=a
 set signcolumn=number
 set timeoutlen=500
@@ -65,7 +67,8 @@ nmap ga <Plug>(EasyAlign)
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+" nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <leader>n :NvimTreeToggle<CR>
 
 nnoremap <silent> <leader>gg :LazyGit<CR>
 
