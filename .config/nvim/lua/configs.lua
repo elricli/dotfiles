@@ -35,3 +35,7 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   }
 }
+
+
+-- gui settings
+vim.o.guifont = "FiraCode Nerd Font:h12"

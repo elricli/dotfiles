@@ -77,6 +77,14 @@ set termguicolors
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 hi! SignColumn ctermbg=NONE guibg=NONE
+" set guifont=Maple\ Mono\ SC\ NF,MonaspiceKr\ Nerd\ Font\ Mono,Fira\ Code\ Mono,Roboto\ Mono,Source\ Code\ Pro:h10
+set guifont=Maple\ Mono\ SC\ NF:h11
+
+" Neovide
+let g:neovide_remember_window_size = v:true
+let g:neovide_refresh_rate_idle = 1
+let g:neovide_cursor_antialiasing = v:true
+let g:neovide_cursor_animation_length = 0.05
 
 " Themes
 let g:everforest_enable_italic = 1
