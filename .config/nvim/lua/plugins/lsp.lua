@@ -22,29 +22,36 @@ return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v4.x',
     lazy = true,
-    config = false,
   },
-  {
+  --[[{
     'williamboman/mason.nvim',
     lazy = false,
     opts = {},
-  },
+  },--]]
 
   -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
+    dependencies = {
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+    },
     config = function()
       local cmp = require('cmp')
 
       cmp.setup({
         sources = {
           {name = 'nvim_lsp'},
+          {name = 'buffer'},
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         snippet = {
           expand = function(args)
@@ -113,25 +120,70 @@ return {
           vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
           vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
           vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+          vim.keymap.set({'n', 'x'}, '<leader>bf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
           vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+          local id = vim.tbl_get(event, 'data', 'client_id')
+          local client = id and vim.lsp.get_client_by_id(id)
+          if client == nil then
+            return
+          end
+          if client.supports_method('textDocument/formatting') then
+            require('lsp-zero').buffer_autoformat()
+          end
         end,
       })
-
       -- manual setup of LSP servers
-      -- require('lspconfig').gopls.setup({})
-      -- require('lspconfig').rust_analyzer.setup({})
+      require('lspconfig').gopls.setup({
+        settings = {
+          gopls = {
+            gofumpt = true,
+            codelenses = {
+              gc_details = false,
+              generate = true,
+              regenerate_cgo = true,
+              run_govulncheck = true,
+              test = true,
+              tidy = true,
+              upgrade_dependency = true,
+              vendor = true,
+            },
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+            analyses = {
+              fieldalignment = true,
+              nilness = true,
+              unusedparams = true,
+              unusedwrite = true,
+              useany = true,
+            },
+            usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+            semanticTokens = true,
+          },
+        },
+      })
+      require('lspconfig').rust_analyzer.setup({})
 
       -- automatic setup of LSP servers
-      require('mason-lspconfig').setup({
-        ensure_installed = {},
-        handlers = {
-          -- this first function is the "default handler"
-          -- it applies to every language server without a "custom handler"
-          function(server_name)
-            require('lspconfig')[server_name].setup({})
-          end,
-        }
-      })
+      --require('mason-lspconfig').setup({
+      --  ensure_installed = {},
+      --  handlers = {
+      --    -- this first function is the "default handler"
+      --    -- it applies to every language server without a "custom handler"
+      --    function(server_name)
+      --      require('lspconfig')[server_name].setup({})
+      --    end,
+      --  }
+      --})
     end
   },
 }

@@ -1,4 +1,4 @@
--- vim settings
+-- custom vim settings
 vim.opt.encoding = "utf-8"
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -13,8 +13,8 @@ vim.o.tabstop = 4
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.mouse = 'a'
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 vim.o.signcolumn = 'number'
 vim.o.colorcolumn = '120'
 
@@ -22,9 +22,7 @@ vim.o.timeoutlen=500
 vim.o.updatetime=300
 
 -- themes
-vim.cmd.colorscheme("everforest")
 vim.o.background=dark
-
 
 -- key mapping
 vim.g.mapleader = " "
@@ -44,5 +42,14 @@ vim.api.nvim_set_keymap('n', '<leader>ww', ':set wrap!<CR>', { noremap = true, s
 
 -- GUI
 vim.o.guifont = "Maple Mono SC NF:h11"
+vim.o.termguicolors = true
+
+-- neovide
+if vim.g.neovide then
+	vim.g.neovide_remember_window_size = true
+	vim.g.neovide_refresh_rate_idle = 5
+	vim.g.neovide_cursor_antialiasing = true
+	vim.g.neovide_cursor_animation_length = 0.05
+end
 
 require("config.lazy")
