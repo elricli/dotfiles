@@ -5,22 +5,37 @@ return {
 		dependencies = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			local builtin = require('telescope.builtin')
-			vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+			vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
 			vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-			vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-			vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+			vim.keymap.set('n', '<C-b>', builtin.buffers, { desc = 'Telescope buffers' })
+			--vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 		end,
     },
 	{
 		"kyazdani42/nvim-tree.lua",
+		event = "VeryLazy",
 		config = function()
 			require'nvim-tree'.setup {}
 			vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true})
 		end,
 	},
-	-- "folke/which-key.nvim",
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+			  "<leader>?",
+			  function()
+				require("which-key").show({ global = false })
+			  end,
+			  desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
 	{
 		"easymotion/vim-easymotion",
+		event = "VeryLazy",
 		config = function()
 			vim.api.nvim_set_keymap('n', 'e', '0<Plug}(easymotion-w)', {})
 			vim.api.nvim_set_keymap('n', 'b', '<Plug>(easymotion-b)', {})
@@ -31,9 +46,13 @@ return {
 			vim.g.EasyMotion_smartcase = 1
 		end,
 	},
-	"github/copilot.vim",
+	{
+		"github/copilot.vim",
+		event = 'InsertEnter',
+	},
 	{
 		"kdheepak/lazygit.nvim",
+		event = "VeryLazy",
 		config = function()
 			vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true, silent = true})
 		end
@@ -42,6 +61,7 @@ return {
 	--"junegunn/fzf.vim",
 	{
 		"tpope/vim-commentary",
+		event = "VeryLazy",
 		config = function()
 			vim.api.nvim_set_keymap('n', '<leader>cc', '<Plug>CommentaryLine', {})
 			vim.api.nvim_set_keymap('x', '<leader>cc', '<Plug>Commentary', {})
@@ -49,6 +69,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = "VeryLazy",
 		build = ':TSUpdate',
 		config = function()
 			require('nvim-treesitter.configs').setup {
