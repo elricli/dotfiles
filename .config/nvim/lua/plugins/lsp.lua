@@ -23,11 +23,11 @@ return {
     branch = 'v4.x',
     lazy = true,
   },
-  --[[{
+  {
     'williamboman/mason.nvim',
     lazy = false,
     opts = {},
-  },--]]
+  },
 
   -- Autocompletion
   {
@@ -163,7 +163,7 @@ return {
               unusedwrite = true,
               useany = true,
             },
-            usePlaceholders = true,
+            --usePlaceholders = true,
             completeUnimported = true,
             staticcheck = true,
             directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },

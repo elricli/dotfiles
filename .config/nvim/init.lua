@@ -22,7 +22,7 @@ vim.o.timeoutlen=500
 vim.o.updatetime=300
 
 -- themes
-vim.o.background=dark
+vim.o.background="dark"
 
 -- key mapping
 vim.g.mapleader = " "
@@ -46,7 +46,7 @@ vim.o.termguicolors = true
 
 -- neovide
 if vim.g.neovide then
-	vim.g.neovide_remember_window_size = true
+	--vim.g.neovide_remember_window_size = true
 	vim.g.neovide_refresh_rate_idle = 5
 	vim.g.neovide_cursor_antialiasing = true
 	vim.g.neovide_cursor_animation_length = 0.05
