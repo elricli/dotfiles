@@ -7,7 +7,8 @@ set -gx PATH "$PATH:$HOME/go/bin"
 set -gx PATH "$PATH:$HOME/.emacs.d/bin"
 set -gx PATH "$PATH:$HOME/.cargo/bin"
 set -gx PATH "$PATH:$HOME/.local/bin"
-set -gx PATH "$PATH:$HOME/.krew/bin"
+#set -gx PATH "$PATH:$HOME/.krew/bin"
+set -gx LANG "en_US.UTF-8"
 
 #set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 #set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
