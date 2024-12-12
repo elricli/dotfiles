@@ -1,12 +1,13 @@
 if type -q nvim
     alias vim 'nvim'
+    alias v 'nvim'
 end
 # Quick edits
 alias j autojump
 alias ea 'nvim ~/.config/fish/aliases.fish'
 alias ef 'nvim ~/.config/fish/config.fish'
 alias eg 'nvim ~/.gitconfig'
-alias ev 'nvim ~/.config/nvim/init.vim'
+alias ev 'nvim ~/.config/nvim/init.lua'
 alias ep 'nvim ~/.config/nvim/lua/plugins.lua'
 alias elsp 'nvim ~/.config/nvim/lua/lsp.lua'
 alias ec 'nvim ~/.config/nvim/lua/configs.lua'
@@ -19,6 +20,8 @@ alias edc 'emacs ~/.doom.d/config.el'
 alias k 'kubectl'
 alias tk 'k --kubeconfig ~/.kube/liangli-test-kubeconfig'
 alias pk 'k --kubeconfig ~/.kube/liangli-prod-kubeconfig'
+alias sgpk 'k --kubeconfig ~/.kube/cls-prod-singapore-config-liangli'
+alias k9s 'k9s --headless --crumbsless'
 alias kui-prod 'k9s --kubeconfig ~/.kube/liangli-prod-kubeconfig'
 alias kui-test 'k9s --kubeconfig ~/.kube/liangli-test-kubeconfig'
 alias kui-sg 'k9s --kubeconfig ~/.kube/cls-prod-singapore-config-liangli'

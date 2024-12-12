@@ -109,3 +109,6 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 eval "$(starship init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/elric/.cache/lm-studio/bin"
