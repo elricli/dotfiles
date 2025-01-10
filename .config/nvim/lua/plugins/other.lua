@@ -118,14 +118,21 @@ return {
 			vim.g.everforest_enable_italic = 1
 			vim.g.everforest_diagnostic_line_highlight = 1
 			vim.g.everforest_better_performance = 1
+		end,
+		enabled = false
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			vim.cmd.colorscheme("kanagawa")
 		end
 	},
 	{
 		"sainnhe/edge",
-		lazy = true,
+		enabled = false
 	},
 	{
 		"sainnhe/gruvbox-material",
-		lazy = true,
+		enabled = false
 	},
 }

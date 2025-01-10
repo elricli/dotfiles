@@ -3,12 +3,16 @@ source ~/.config/fish/aliases.fish
 set -gx fish_greeting
 
 set -gx EDITOR nvim
-set -gx PATH "$PATH:$HOME/go/bin"
-set -gx PATH "$PATH:$HOME/.emacs.d/bin"
-set -gx PATH "$PATH:$HOME/.cargo/bin"
-set -gx PATH "$PATH:$HOME/.local/bin"
-#set -gx PATH "$PATH:$HOME/.krew/bin"
-set -gx LANG "en_US.UTF-8"
+fish_add_path $HOME/go/bin
+fish_add_path $HOME/.emacs.d/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.local/bin
+# Added by LM Studio CLI (lms)
+fish_add_path $HOME/.cache/lm-studio/bin
+# Added by Windsurf
+#fish_add_path $HOME/.codeium/windsurf/bin
+
+#set -gx LANG "en_US.UTF-8"
 
 #set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 #set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
@@ -33,9 +37,3 @@ zoxide init fish | source
 
 starship init fish | source
 
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/elric/.cache/lm-studio/bin
-
-# Added by Windsurf
-fish_add_path /Users/elric/.codeium/windsurf/bin
