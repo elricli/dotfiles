@@ -31,7 +31,9 @@ if status is-interactive
     atuin init fish | source
 end
 
-pyenv init - | source
+if test -q pyenv
+    pyenv init - | source
+end
 
 zoxide init fish | source
 
