@@ -31,11 +31,13 @@ if status is-interactive
     atuin init fish | source
 end
 
-if test -q pyenv
-    pyenv init - | source
-end
+pyenv init - | source
 
 zoxide init fish | source
 
 starship init fish | source
 
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.fish 2>/dev/null || :
